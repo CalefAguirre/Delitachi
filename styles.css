@@ -1,0 +1,20 @@
+/*this code is just a start up
+this code might not be used in further updates*/
+
+#MainHeader{
+  padding-top: 20px;
+  padding-left: 20px;
+  text-align: center;
+  font-size: 45px;
+  letter-spacing: 15px;
+  color: #ff0055;
+  transition: letter-spacing 3s;
+  animation: fadein 3.5s ease-in;
+  font-family: fangsong;
+
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
