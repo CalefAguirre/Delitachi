@@ -1,12 +1,11 @@
 const http = require('http');
 const express = require("express");
-//const mongoose = require("mongoose");
 const app = express();
 
-app.get("/", (req, res) => {
-  res.end("works!");
-});
-
+app.use(express.static('src/public'));
+//app.get('/', (req, res) => {
+//    res.sendFile(__dirname+'/src/public/index.html');
+//});
 app.listen(3000, () => {
   console.log("server initiated");
 });
