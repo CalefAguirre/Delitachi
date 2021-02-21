@@ -4,7 +4,7 @@
   "description": "Website that presents recommendations of our own recipe catalog,\r  by using filters and tags, in order to provide a selection of recipes.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "index": "nodemon server"
   },
   "repository": {
     "type": "git",

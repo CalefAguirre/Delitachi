@@ -4,7 +4,6 @@ const express = require("express");
 const socketio = require("socket.io");
 const mongoose = require("mongoose");
 
-
 //initializing server and sockets
 const app = express();
 const server = http.createServer(app);
@@ -19,14 +18,12 @@ const io = socketio.listen(server);
     // perform actions on the collection object
     client.close();
   });
-
+  //mvd 2 cnntn
   const connectDB = async () => {
     await mongoose.connect(uri, {useUnifiedTopology: true; useNewUrlParser: true;})
       .then(db => console.log("db connected"))
       .catch(err => console.log(err));
   }
-
-//module.exports = connectDB;
 
 //settings
 app.set("port", process.env.PORT || 3000);
