@@ -1,10 +1,10 @@
 {
-  "name": "delitachi",
+  "name": "Delitachi",
   "version": "1.0.0",
-  "description": "Website that presents recommendations of our own recipe catalog,\r  by using filters and tags, in order to provide a selection of recipes.",
+  "description": "Website",
   "main": "index.js",
   "scripts": {
-    "index": "nodemon server"
+    "test": "nodemon index"
   },
   "repository": {
     "type": "git",
