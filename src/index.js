@@ -4,15 +4,29 @@ const express = require("express");
 const socketio = require("socket.io");
 const mongoose = require("mongoose");
 
+
 //initializing server and sockets
 const app = express();
 const server = http.createServer(app);
 const io = socketio.listen(server);
 
 //connections to the Server
-mongoose.connect("mongodb://") //let's fix this 2MR
-  .then(db => console.log("db connected"))
-  .catch(err => console.log(err));
+  const MongoClient = require('mongodb').MongoClient;
+  const uri = "mongodb+srv://AguirreCalef:4bGtXg4tGIZEGjB4@cluster0.3v3xb.mongodb.net/Delitachi?retryWrites=true&w=majority";
+  const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+  client.connect(err => {
+    const collection = client.db("test").collection("devices");
+    // perform actions on the collection object
+    client.close();
+  });
+
+  const connectDB = async () => {
+    await mongoose.connect(uri, {useUnifiedTopology: true; useNewUrlParser: true;})
+      .then(db => console.log("db connected"))
+      .catch(err => console.log(err));
+  }
+
+//module.exports = connectDB;
 
 //settings
 app.set("port", process.env.PORT || 3000);
