@@ -1,23 +1,28 @@
-//initializing server
-const path = require("path");
-const express = require("express");
-const mongoose = require("mongoose");
-const connectDB = require("src/DB/connection");
-const http = require("http");
+const express = require('express');
+//const socketio = require('socket.io');
+const mongoose = require('mongoose');
 
+const http = require('http');
+const path = require('path');
+
+//initializing server
 const app = express();
 const server = http.createServer(app);
+//const io = socketio.listen(server);
 
 //connections to the Server
+const connectDB = require('./DB/connection');
 connectDB();
 
 //settings
-app.set("port", process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3000);
 
 //static files
-app.use(express.static('src/public'));
+app.use(express.static(
+  path.join(__dirname, 'public')
+  ));
 
 //listening the server
-app.listen(app.get("port"), () => {
-  console.log(`server on port ${app.get("port")}`);
+app.listen(app.get('port'), () => {
+  console.log(`server started on port ${app.get('port')}`);
 });

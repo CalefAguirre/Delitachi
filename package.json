@@ -4,7 +4,8 @@
   "description": "Website",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node src/index.js",
+    "dev": "nodemon ./src"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   "homepage": "https://github.com/CalefAguirre/Delitachi#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.11.17"
+    "mongoose": "^5.11.17",
+    "nodemon": "^2.0.7"
   }
 }
