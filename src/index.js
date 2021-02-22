@@ -1,5 +1,5 @@
 const express = require('express');
-//const socketio = require('socket.io');
+const socketio = require('socket.io');
 const mongoose = require('mongoose');
 
 const http = require('http');
@@ -8,7 +8,13 @@ const path = require('path');
 //initializing server
 const app = express();
 const server = http.createServer(app);
-//const io = socketio.listen(server);
+
+//websockets
+const io = socketio(server);
+
+io.on('connection', () => {
+  console.log('new connection');
+});
 
 //connections to the Server
 const connectDB = require('./DB/connection');
