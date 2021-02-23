@@ -18,7 +18,7 @@
  Github Page: https://github.com/CalefAguirre/Delitachi
 
 ## Point of contact and Slack channel
- Calef Aguirre
+  Name: Calef Aguirre
   E-mail: aguirrecalef@gmail.com
   Slack Channel: https://delitachi.slack.com/archives/C01MVUYJD8T
 
