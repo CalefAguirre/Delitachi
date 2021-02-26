@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const uri = require('./server/DB/uri');
+const path = require('path');
+const uri = require(__dirname + '/uri');
 
 const connectDB = async () => {
   await mongoose.connect(uri, {

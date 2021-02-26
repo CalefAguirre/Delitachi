@@ -17,7 +17,7 @@ io.on('connection', () => {
 });
 
 //connections to the Server
-const connectDB = require('./server/DB/connection');
+const connectDB = require('../server/DB/connection');
 connectDB();
 
 //settings
@@ -31,7 +31,7 @@ app.set('port', process.env.PORT || 3000);
 
 //static files
 app.use(express.static(
-  path.join(__dirname, 'public')
+  path.join('..','src','public')
   ));
 
 //listening the server
