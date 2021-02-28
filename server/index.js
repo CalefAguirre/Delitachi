@@ -1,6 +1,7 @@
 const express = require('express');
 const socketio = require('socket.io');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 const http = require('http');
 const path = require('path');
@@ -24,10 +25,16 @@ connectDB();
 app.set('port', process.env.PORT || 3000);
 
 //middlewares
+app.use(bodyParser.json());
 
+//initializing routes
+app.use(require('./routes/api'));
 
-//routes
-
+//error handling middleware
+app.use(function(err,req,res,next){
+  //console.log(err);
+  res.status(422).send({error: err.message});
+})
 
 //static files
 app.use(express.static(

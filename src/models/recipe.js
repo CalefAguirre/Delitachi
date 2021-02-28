@@ -2,5 +2,9 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const recipeSchema = new Schema ({
-  name: {type: String, required: true}
+  id:,
+  name: {type: String, required: true},
+  ingredients:,
+  vegetarian:,
+  timelapse:
 })
