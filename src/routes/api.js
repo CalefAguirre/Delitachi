@@ -2,6 +2,14 @@ const express = require('express');
 const router = express.Router();
 
 //url of main page
+router.get('/about',function(req,res){
+  res.send('hello, this is about page');
+});
+
+router.get('/search',function(req,res){
+  res.send('hello, this is search page');
+});
+
 router.get('/recipes',function(req,res){
   res.send({type: 'GET'});
 });

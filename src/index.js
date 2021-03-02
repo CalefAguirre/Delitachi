@@ -8,20 +8,20 @@ const socketio = require('socket.io');
 const http = require('http');
 const path = require('path');
 
-const exphbs = require('express-handlebars');
-const methodOverride = require('method-override');
-const session = require('express-session');
+//const exphbs = require('express-handlebars');
+//const methodOverride = require('method-override');
+//const session = require('express-session');
 
 // Initializations
 const app = express();
 const server = http.createServer(app);
 
 // Settings
-const PORT = process.env.PORT || 3000;
-app.set('views', path.join('.','src','views'));
-app.engine('.hbs', exphbs({
+app.set('port', process.env.PORT || 3000);
+//app.set('views', (__dirname + 'views'));
+//app.engine('.hbs', exphbs({
 
-}));
+//}));
 
 // Middlewares
 app.use(morgan('dev'));
@@ -35,11 +35,11 @@ io.on('connection', () => {
 });
 
 // Connections to the Server
-const connectDB = require('../server/DB/connection');
+const connectDB = require(__dirname + '/DB/connection');
 connectDB();
 
 // Routes
-app.use('/api', require('../src/routes/api'));
+//app.use('/api', require(__dirname + '/routes/api'));
 
 //error handling middleware
 app.use(function(err,req,res,next){
@@ -48,8 +48,10 @@ app.use(function(err,req,res,next){
 })
 
 //static files
-app.use(express.static(path.join('.','src','public')));
-app.use(express.static(path.join('.','src','public','img')));
+app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public/img'));
 
 //listening the server
-  console.log('server started on port ' + PORT);
+app.listen(app.get('port'), () => {
+  console.log(`server started on port ${app.get('port')}`);
+});
